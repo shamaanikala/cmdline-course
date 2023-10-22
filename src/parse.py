@@ -23,13 +23,13 @@ if __name__=="__main__":
     
     print('Starting parsing...')
     # Read input sentences from ifile and print parse trees to ofile.
-    skippedLines = 0
+    parsedLines = 0
     for i, line in enumerate(ifile):
         print('> Parsing line',line)
         if len(line.strip('\n')) == 0:
             continue
-        if skippedLines >= 10:
+        if parsedLines >= 10:
             break
         #print(rrp.simple_parse(line.strip('\n')), file=ofile)
         print(rrp.simple_parse(line.strip('\n')))
-        skippedLines += 1
+        parsedLines += 1
