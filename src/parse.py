@@ -25,5 +25,11 @@ if __name__=="__main__":
             continue
         if parsedLines >= 10:
             break
-        print(rrp.simple_parse(line.strip('\n')), file=ofile)
+        try:
+            print(rrp.simple_parse(line.strip('\n')), file=ofile)
+        except IndexError: # there is something wrong with the parsed sentence
+            print('Unable to parse sentence:')
+            print(line)
+            print('skipping...')
+            continue
         parsedLines += 1
