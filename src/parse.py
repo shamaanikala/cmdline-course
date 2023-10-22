@@ -16,11 +16,15 @@ if __name__=="__main__":
     # Initialize parser and download parser model if needed.
     rrp = RerankingParser.fetch_and_load('WSJ-PTB3', verbose=True)
 
+    print('Opening input file...')
     ifile = open(argv[1])
+    print('Opening output file...')
     ofile = open(argv[2],"w")
     
+    print('Starting parsing...')
     # Read input sentences from ifile and print parse trees to ofile.
     for i, line in enumerate(ifile):
+        print('> Parsing line',line)
         if i >= 10:
             break
         print(rrp.simple_parse(line.strip('\n')), file=ofile)
