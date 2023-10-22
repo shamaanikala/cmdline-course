@@ -1,6 +1,8 @@
-from sys import argv, stderr
+from sys import argv, stderr, settrace
 from bllipparser import RerankingParser
 
+
+settrace
 if __name__=="__main__":
     """
         Parse an English Gutenberg book in sentence per line format
